@@ -1,1 +1,1 @@
-# BlobStorageAngular8
+# Azure Blob Storage CRUD Actions - Angular 8 Project
