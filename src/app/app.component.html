@@ -1,20 +1,26 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div style="text-align:center; margin-top: 20px;">
+  <h4>
+    Upload, Download and Delete Blob Files using ASP.NET Core and Angular 8
+  </h4>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+<div class="blobstorage-section">
+  <i class="fa fa-plus fa-2x" style="cursor: pointer; color: darkslateblue;" (click)="addFile()"></i>&nbsp; Add new files to Blob
+  <input style="display: none;" type="file" id="fileUpload" #selectedFile [(ngModel)]="fileUpload" (click)="selectedFile.value = null" value="" (change)="handleFileInput($event.target.files)" />
+  <table style="margin-top: 20px;">
+    <tr>
+      <th class="column1">Uploaded Files</th>
+      <th class="column2" style="text-align:center;">Download</th>
+      <th class="column3" style="text-align:center;">Delete</th>
+    </tr>
+    <tr *ngFor="let file of files">
+      <td class="column1">{{file}}</td>
+      <td class="column2" style="text-align:center;cursor: pointer;" (click)="downloadFile(file)"><i class="fa fa-download"></i></td>
+      <td class="column3" style="text-align:center;" (click)="deleteFile(file)">
+        <img alt="Group Audit" src="../assets/icon-download.png" />
+      </td>
+    </tr>
+  </table>
+</div>
+
 
